@@ -5,7 +5,7 @@ export interface ProjectType {
   userId: string
 }
 export interface TaskType {
-  id: string
+  taskId: string
   // 档案
   archived: boolean
   date: string
@@ -34,7 +34,15 @@ const initialState: { projects: ProjectType[]; tasks: TaskType[]; users: UserTyp
   ],
   tasks: [
     {
-      id: '1',
+      taskId: '1',
+      archived: true,
+      date: '2000-01-01',
+      projectId: '1',
+      task: '我要玩游戏',
+      userId: '1'
+    },
+    {
+      taskId: '2',
       archived: true,
       date: '2000-01-01',
       projectId: '1',

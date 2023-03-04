@@ -23,12 +23,12 @@ const initialState: { projects: ProjectType[]; tasks: TaskType[]; users: UserTyp
   projects: [
     {
       projectId: '1',
-      name: 'todoTest',
+      name: '♫ Music',
       userId: '1'
     },
     {
       projectId: '2',
-      name: 'todoTest2',
+      name: '♫ Music',
       userId: '1'
     }
   ],

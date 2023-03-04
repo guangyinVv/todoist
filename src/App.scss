@@ -256,28 +256,41 @@ header {
   }
 
   li {
+    svg {
+      opacity: 0;
+    }
+
     &:hover .sidebar__project-delete {
       display: -webkit-box;
       display: -ms-flexbox;
+
+      svg {
+        opacity: 1;
+      }
+
+    }
+
+    .sidebar__project-delete {
       display: flex;
+
     }
   }
 
   &__project {
     cursor: pointer;
 
-    div:nth-child(1) {
-      padding: 5px 0;
-      padding-left: 10px;
-      padding-right: 15px;
-      width: 100%;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center;
-    }
+    // div:nth-child(1) {
+    //   padding: 5px 0;
+    //   padding-left: 10px;
+    //   padding-right: 15px;
+    //   width: 100%;
+    //   display: -webkit-box;
+    //   display: -ms-flexbox;
+    //   display: flex;
+    //   -webkit-box-align: center;
+    //   -ms-flex-align: center;
+    //   align-items: center;
+    // }
 
     &-delete {
       margin-left: auto;
@@ -409,6 +422,38 @@ header {
         font-weight: bold;
         background-color: white;
       }
+    }
+  }
+}
+
+// 确认删除的弹出层
+.project-delete-modal {
+  position: relative;
+
+  &__inner {
+    @include box-overlay();
+    z-index: 99;
+    width: 200px;
+    padding: 10px;
+    top: 23px;
+    right: 5px;
+    background-color: white;
+
+    p {
+      margin-top: 5px;
+      margin-bottom: 5px;
+      line-height: normal;
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+    button {
+      @include btn('50px');
+    }
+
+    span {
+      @include cancel();
+      font-weight: normal;
     }
   }
 }

@@ -9,7 +9,7 @@ const IndividualProject = ({ project }: { project: ProjectType }) => {
   const [showConfirm, setShowConfirm] = useState(false)
   return (
     <>
-      <span className='sidebar__dot'>・</span>
+      <span className='sidebar__dot'>•</span>
       <span className='sidebar__project-name'>{project.name}</span>
       <span
         className='sidebar__project-delete'
@@ -22,7 +22,7 @@ const IndividualProject = ({ project }: { project: ProjectType }) => {
         {showConfirm && (
           // 弹出层
           <div className='project-delete-modal'>
-            <div className='project-delete-model__inner'>
+            <div className='project-delete-modal__inner'>
               {/* 确认删除 */}
               <p>你确定要删除该项目吗？</p>
               <button
@@ -31,15 +31,15 @@ const IndividualProject = ({ project }: { project: ProjectType }) => {
                 }}
               >
                 Delete
-                <span
-                  onClick={() => {
-                    // 取消删除
-                    setShowConfirm(!showConfirm)
-                  }}
-                >
-                  Cancel
-                </span>
               </button>
+              <span
+                onClick={() => {
+                  // 取消删除
+                  setShowConfirm(!showConfirm)
+                }}
+              >
+                Cancel
+              </span>
             </div>
           </div>
         )}

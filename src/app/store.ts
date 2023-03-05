@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux'
 // 持久化组件
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import counterSlice from '../features/counter/counterSlice'
 import todoistSlice from '../features/todoist/todoistSlice'
 
 // export const store = configureStore({
@@ -13,8 +12,7 @@ import todoistSlice from '../features/todoist/todoistSlice'
 //   }
 // })
 const rootReducer = combineReducers({
-  todoist: todoistSlice,
-  counter: counterSlice
+  todoist: todoistSlice
 })
 const persistConfig = {
   key: 'root',

@@ -63,7 +63,7 @@ const todoistSlice = createSlice({
   name: 'todoist',
   initialState: initialState,
   reducers: {
-    // 根据Id删除项目
+    // 根据Id删除Project
     deleteProject(
       state,
       action: {
@@ -73,8 +73,35 @@ const todoistSlice = createSlice({
     ) {
       const index = state.projects.findIndex((project) => project.projectId === action.payload)
       state.projects.splice(index, 1)
+    },
+    // 添加Project
+    addProject(state, { payload }: { payload: ProjectType }) {
+      // 判断id是否相同，如果相同，则取消添加
+      let flag: any = state.projects.find((project) => project.projectId === payload.projectId)
+      if (flag) {
+        throw new Error('id重复')
+      }
+      // 再判断userId
+      flag = state.users.find((user) => user.userId === payload.userId)
+      if (!flag) {
+        throw new Error('用户id不存在')
+      }
+      state.projects.push(payload)
+    },
+    // 添加task
+    addTask(state, { payload }: { payload: TaskType }) {
+      // 判断id是否相同，如果相同，则取消添加
+      let flag: any = state.tasks.find((task) => task.taskId === payload.taskId)
+      if (flag) {
+        throw new Error('id重复')
+      }
+      flag = state.users.find((user) => user.userId === payload.userId)
+      if (!flag) {
+        throw new Error('用户id不存在')
+      }
+      state.tasks.push(payload)
     }
   }
 })
 export default todoistSlice.reducer
-export const deleteProject = todoistSlice.actions.deleteProject
+export const { deleteProject, addProject } = todoistSlice.actions

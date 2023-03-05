@@ -9,6 +9,7 @@ import {
   SelectedProjectContext,
   SelectedProjectContextType
 } from '../../context'
+import AddProject from '../AddProject'
 import Projects from '../Projects'
 const Sidebar = () => {
   const { selectedProject, setSelectedProject } = useContext(
@@ -66,7 +67,7 @@ const Sidebar = () => {
         <h2>Projects</h2>
       </div>
       <ul className='sidebar__projects'>{showProjects && <Projects />}</ul>
-      Add project Components here
+      {showProjects && <AddProject />}
     </div>
   )
 }

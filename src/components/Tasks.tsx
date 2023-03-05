@@ -25,7 +25,8 @@ function Task () {
     projectName = getTitle(projects, selectedProject) as string
   }
   useEffect(() => {
-    document.title = `${projectName} Todoist`
+    if (projectName) document.title = `${projectName} Todoist`
+    else document.title = 'Todoist'
   })
 
   return (
